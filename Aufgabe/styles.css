@@ -14,10 +14,37 @@ aside {
 
 .header-wrapper {
     display: flex;
-    height: 10%;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    min-height: 50.6667px;
+    height: 50.6667px;
     width: 100%;
-    background-color: grey;
 }
+
+.header-wrapper ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+.header-wrapper li {
+    float: left;
+  }
+  
+.header-wrapper li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+.header-wrapper li a:hover {
+    background-color: #111111;
+  }
 
 .main-wrapper {
     display: flex;
@@ -47,6 +74,8 @@ aside {
 .footer-wrapper {
     display: flex;
     flex-direction: row;
+    position: fixed;
+    bottom: 0;
     height: 5%;
     width: 100%;
     background-color: lightskyblue;
