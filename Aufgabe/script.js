@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+    if (document.cookie.includes("login_state=true")) {
+        let btn_login = document.getElementById("btn_login");
+        btn_login.innerHTML = "Logout";
+    }
+
     let wm_btn_pressed = false;
     document.getElementById("btn_welcome_message").onclick = () => {
         try {
@@ -22,6 +27,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } catch(error) {
             console.log("Error Welcome-Message-Button");
+        }
+    }
+
+    login_button.onclick = () => {
+        try {
+            if (document.cookie.includes("login_state=false") && !document.cookie.includes("login_state=true")) {
+                let c_value = "login_state=true";
+                let date = new Date();
+                date.setDate(date.getDate() + 1);
+                let c_expiry = "expires=" + date.toGMTString();
+                let c_path = "path=/";
+                document.cookie = c_value + "; " + c_expiry + "; " + c_path;
+                location.reload();
+            } else if (document.cookie.includes("login_state=true")) {
+                document.cookie = "login_state=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                location.reload();
+            }
+        } catch(error) {
+
         }
     }
 })
