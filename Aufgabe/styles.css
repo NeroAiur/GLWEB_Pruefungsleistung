@@ -51,3 +51,9 @@ aside {
     width: 100%;
     background-color: lightskyblue;
 }
+
+.footer-element {
+    display: flex;
+    margin-left: 5%;
+    float: center;
+}
