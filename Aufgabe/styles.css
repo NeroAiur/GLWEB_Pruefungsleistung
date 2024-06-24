@@ -101,7 +101,7 @@ aside {
     bottom: 0;
     height: 34.6667px;
     width: 100%;
-    background-color: lightskyblue;
+    background-color: #333333;
 }
 
 .footer-wrapper ul {
@@ -109,7 +109,6 @@ aside {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333333;
 }
 
 .footer-wrapper li {
@@ -127,3 +126,22 @@ aside {
 .footer-wrapper li a:hover {
     background-color: #111111;
   }
+
+.footer-wrapper ul li:last-child {
+    float: right;
+}
+
+.footer-wrapper button {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 9px;
+    text-decoration: none;
+    background-color: #333333;
+    border: 0;
+}
+
+.footer-wrapper button:hover {
+    background-color: #111111;
+}
