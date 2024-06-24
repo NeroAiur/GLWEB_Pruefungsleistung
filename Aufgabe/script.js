@@ -11,7 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
             let button = document.getElementById("btn_welcome_message");
             var parent = button.parentNode;
             parent.removeChild(button);
-            button.remove();  
+            button.remove();
+            
+            var ul = document.getElementById("lst_navigation");
+            var li = document.createElement("li");
+            var btn_reap = document.createElement("button");
+            btn_reap.id = "btn_reap";
+            li.appendChild(btn_reap);
+            ul.appendChild(li);
         } catch(error) {
             console.log("lele");
         }
