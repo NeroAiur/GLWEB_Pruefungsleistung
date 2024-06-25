@@ -103,7 +103,8 @@ p {
 
 .contentWrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding-bottom: 55.667px;
     height: 100%;
     width: 100%;
@@ -112,13 +113,15 @@ p {
 
 .contentColumn {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 50%;
+    box-sizing: border-box;
 }
 
 .content {
-    padding-top: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding: 10px;
+    background-color: lightgrey;
+    margin: 5px;
 }
 
 .aside-wrapper {
@@ -144,6 +147,7 @@ p {
     align-items: center;
     list-style-type: none;
     width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -209,6 +213,10 @@ p {
         flex-direction: column;
     }
 
+    .contentColumn {
+        width: 100%;
+    }
+
     aside {
         display: none;
     }
@@ -222,6 +230,10 @@ p {
 @media (max-width: 480px) { /* Mobile */
     .mainWrapper {
         flex-direction: column;
+    }
+
+    .contentColumn {
+        width: 100%;
     }
 
     aside {
