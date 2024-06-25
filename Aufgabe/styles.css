@@ -3,6 +3,7 @@ html, body {
     width: 100%;
     margin: 0;
     background-color: #333333;
+    font-size: 0.7cm;
 }
 
 main {
@@ -14,11 +15,10 @@ aside {
 }
 
 .header-wrapper {
-    display: flex;
+    display: inline-block;
     flex-direction: row;
     position: fixed;
     top: 0;
-    height: 50.6667px;
     width: 100%;
     background-color: #333333;
 }
@@ -57,9 +57,11 @@ aside {
     display: block;
     color: white;
     text-align: center;
-    padding: 17.3333px;
+    padding: 16.5px;
+    margin: 0;
     text-decoration: none;
     background-color: #333333;
+    font-size: 0.7cm;
     border: 0;
 }
 
@@ -95,11 +97,10 @@ aside {
 }
 
 .footer-wrapper {
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     position: fixed;
     bottom: 0;
-    height: 34.6667px;
     width: 100%;
     background-color: #333333;
 }
@@ -136,10 +137,12 @@ aside {
     display: block;
     color: white;
     text-align: center;
-    padding: 9px;
+    margin: 0;
+    padding: 8.5px;
     text-decoration: none;
     background-color: #333333;
     border: 0;
+    font-size: 0.7cm;
 }
 
 .footer-wrapper button:hover {
