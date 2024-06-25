@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+    let btn_login = document.getElementById("btn_login");
+    let cookie = document.cookie;
+
+    if ((cookie.includes("login_state=false") && !cookie.includes("login_state=true")) || (cookie == "")) {
+        btn_login.classList.remove("btnLoginLogout")
+        btn_login.classList.add("btnLoginLogin")
+    } else if (cookie.includes("login_state=true")) {
+        btn_login.classList.remove("btnLoginLogin")
+        btn_login.classList.add("btnLoginLogout")
+    }
+
     if (document.cookie.includes("login_state=true")) {
         let btn_login = document.getElementById("btn_login");
         btn_login.innerHTML = "Logout";

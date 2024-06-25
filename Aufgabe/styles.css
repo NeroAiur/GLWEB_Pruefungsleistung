@@ -94,6 +94,14 @@ p {
     background-color: #111111;
 }
 
+.header-wrapper button.btnLoginLogin {
+    color: green;
+}
+
+.header-wrapper button.btnLoginLogout {
+    color: red;
+}
+
 .mainWrapper {
     display: flex;
     flex-direction: row;
