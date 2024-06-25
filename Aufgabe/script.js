@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    login_button.onclick = () => {
+    document.getElementById("btn_login").onclick = () => {
         try {
-            if (document.cookie.includes("login_state=false") && !document.cookie.includes("login_state=true")) {
+            if ((document.cookie.includes("login_state=false") && !document.cookie.includes("login_state=true")) || (document.cookie == "")) {
                 let c_value = "login_state=true";
                 let date = new Date();
                 date.setDate(date.getDate() + 1);
