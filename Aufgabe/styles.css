@@ -107,7 +107,18 @@ p {
     padding-bottom: 55.667px;
     height: 100%;
     width: 100%;
-    background-color: green;
+    background-color: white;
+}
+
+.contentColumn {
+    display: flex;
+    flex-direction: row;
+}
+
+.content {
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .aside-wrapper {
