@@ -48,4 +48,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     }
+
+    const header = document.querySelector(".header-wrapper");
+    const footer = document.querySelector(".footer-wrapper");
+    const mainWrapper = document.querySelector(".mainWrapper")
+    const lst_navigation = document.querySelector(".lst_navigation")
+    let lastScrollPosition = 0;
+    let ticking = false;
+
+    function adjustHeaderFooter() {
+        const currentScrollPosition = window.scrollY;
+
+        if (currentScrollPosition === 0) {
+            header.style.height = "100px";
+            lst_navigation.style.height = "100px";
+            footer.style.height = "40px";
+            mainWrapper.style.paddingTop = "100px";
+            mainWrapper.style.paddingBottom = "40px";
+        } else if ((currentScrollPosition + window.innerHeight + 30) >= document.documentElement.scrollHeight) {
+            header.style.height = "40px";
+            lst_navigation.style.height = "40px";
+            footer.style.height = "100px";
+            mainWrapper.style.paddingTop = "40px";
+            mainWrapper.style.paddingBottom = "100px";
+        } else {
+            header.style.height = "50px";
+            lst_navigation.style.height = "50px";
+            footer.style.height = "50px";
+            mainWrapper.style.paddingTop = "50px";
+            mainWrapper.style.paddingBottom = "50px";
+        }
+
+        lastScrollPosition = currentScrollPosition;
+    }
+
+    window.addEventListener("scroll", function() {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                adjustHeaderFooter();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // Initialisierung beim Laden der Seite
+    adjustHeaderFooter();
 })
