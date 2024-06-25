@@ -4,6 +4,7 @@ html, body {
     margin: 0;
     background-color: #333333;
     font-size: 26.46px; /* Entspricht 0,7cm */
+    font-family: "Roboto", sans-serif;
 }
 
 main {
