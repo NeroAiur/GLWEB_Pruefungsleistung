@@ -4,7 +4,20 @@ html, body {
     margin: 0;
     background-color: #333333;
     font-size: 26.46px; /* Entspricht 0,7cm */
+    font-family: "Serif", serif;
+}
+
+body.accessible {
     font-family: "Roboto", sans-serif;
+}
+
+.headerWrapper.accessible {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.headerWrapper ul li a.accessible {
+    color: yellow;
 }
 
 main {
@@ -31,7 +44,7 @@ p {
     font-size: 1em;
 }
 
-.header-wrapper {
+.headerWrapper {
     position: fixed;
     top: 0;
     width: 100%;
@@ -39,7 +52,7 @@ p {
     transition: height 0.3s ease-in-out;
 }
 
-.header-wrapper ul {
+.headerWrapper ul {
     display: flex;
     align-items: center;
     list-style-type: none;
@@ -50,13 +63,13 @@ p {
     background-color: #333333;
 }
 
-.header-wrapper li {
+.headerWrapper li {
     display: flex;
     align-items: center;
     float: left;
 }
   
-.header-wrapper li a {
+.headerWrapper li a {
     display: block;
     color: white;
     text-align: center;
@@ -65,11 +78,11 @@ p {
     text-decoration: none;
 }
   
-.header-wrapper li a:hover {
+.headerWrapper li a:hover {
     background-color: #111111;
 }
 
-.header-wrapper ul li:last-child {
+.headerWrapper ul li:last-child {
     margin-left: auto;
 }
 
@@ -77,7 +90,7 @@ p {
     transition: height 0.3s ease-in-out;
 }
 
-.header-wrapper button {
+.headerWrapper button {
     float: right;
     display: block;
     color: white;
@@ -90,15 +103,15 @@ p {
     font-size: 1em;
 }
 
-.header-wrapper button:hover {
+.headerWrapper button:hover {
     background-color: #111111;
 }
 
-.header-wrapper button.btnLoginLogin {
+.headerWrapper button.btnLoginLogin {
     color: green;
 }
 
-.header-wrapper button.btnLoginLogout {
+.headerWrapper button.btnLoginLogout {
     color: red;
 }
 
@@ -254,12 +267,12 @@ p {
         height: 100%;
     }
 
-    .header-wrapper, .footer-wrapper {
+    .headerWrapper, .footer-wrapper {
         text-align: center;
         padding: 0.5em;
     }
 
-    .header-wrapper button, .footer-wrapper button {
+    .headerWrapper button, .footer-wrapper button {
         padding: 0.5em;
     }
 }

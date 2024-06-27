@@ -15,6 +15,23 @@ document.addEventListener("DOMContentLoaded", () => {
         btn_login.innerHTML = "Logout";
     }
 
+    const styleSelector = document.getElementById("styleSelector");
+    styleSelector.addEventListener("change", () => {
+        if (styleSelector.value == "accessible") {
+            document.body.classList.add("accessible");
+            document.querySelector(".headerWrapper").classList.add("accessible");
+            document.querySelectorAll(".headerWrapper ul li a").forEach(link => {
+                link.classList.add("accessible");
+            })
+        } else {
+            document.body.classList.remove("accessible");
+            document.querySelector(".headerWrapper").classList.remove("accessible");
+            document.querySelectorAll(".headerWrapper ul li a").forEach(link => {
+                link.classList.remove("accessible");
+            })
+        }
+    })
+
     let wm_btn_pressed = false;
     document.getElementById("btn_welcome_message").onclick = () => {
         try {
@@ -60,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    const header = document.querySelector(".header-wrapper");
+    const header = document.querySelector(".headerWrapper");
     const footer = document.querySelector(".footer-wrapper");
     const mainWrapper = document.querySelector(".mainWrapper")
     const lst_navigation = document.querySelector(".lst_navigation")
