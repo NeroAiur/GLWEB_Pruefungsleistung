@@ -1,0 +1,256 @@
+html, body {
+    height: auto;
+    width: 100%;
+    margin: 0;
+    background-color: #333333;
+    font-size: 26.46px; /* Entspricht 0,7cm */
+}
+
+main {
+    width: 80%;
+}
+
+aside {
+    width: 20%;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 1em;
+}
+
+.header-wrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333333;
+    transition: height 0.3s ease-in-out;
+}
+
+.header-wrapper ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+.header-wrapper li {
+    display: flex;
+    align-items: center;
+    float: left;
+}
+  
+.header-wrapper li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-decoration: none;
+}
+  
+.header-wrapper li a:hover {
+    background-color: #111111;
+}
+
+.header-wrapper ul li:last-child {
+    margin-left: auto;
+}
+
+.lst_navigation {
+    transition: height 0.3s ease-in-out;
+}
+
+.header-wrapper button {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16.5px;
+    margin: 0;
+    text-decoration: none;
+    background-color: #333333;
+    border: 0;
+    font-size: 1em;
+}
+
+.header-wrapper button:hover {
+    background-color: #111111;
+}
+
+.mainWrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    transition: padding 0.3s ease-in-out;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 55.667px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+.contentColumn {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.content {
+    padding: 10px;
+    background-color: lightgrey;
+    margin: 5px;
+}
+
+.aside-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 55.667px;
+    float: right;
+    height: 100%;
+    width: 100%;
+    background-color: lightgreen;
+}
+
+.footer-wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333333;
+    transition: height 0.3s ease-in-out;
+}
+
+.footer-wrapper ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+.footer-wrapper li {
+    display: flex;
+    align-items: center;
+    float: left;
+}
+  
+.footer-wrapper li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-decoration: none;
+}
+  
+.footer-wrapper li a:hover {
+    background-color: #111111;
+}
+
+.footer-wrapper ul li:last-child {
+    margin-left: auto;
+}
+
+.footer-wrapper button {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 8.5px;
+    text-decoration: none;
+    background-color: #333333;
+    border: 0;
+    font-size: 1em;
+}
+
+.footer-wrapper button:hover {
+    background-color: #111111;
+}
+
+@media (min-width: 768px) { /* Desktop */
+    .mainWrapper {
+        flex-direction: row;
+    }
+
+    main {
+        width: 80%;
+    }
+
+    aside {
+        width: 20%;
+    }
+}
+
+@media (max-width: 767px) and (min-width: 481px) { /* Tablet */
+    .mainWrapper {
+        flex-direction: column;
+    }
+
+    .contentColumn {
+        width: 100%;
+    }
+
+    aside {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile */
+    .mainWrapper {
+        flex-direction: column;
+    }
+
+    .contentColumn {
+        width: 100%;
+    }
+
+    aside {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+        height: 100%;
+    }
+
+    .header-wrapper, .footer-wrapper {
+        text-align: center;
+        padding: 0.5em;
+    }
+
+    .header-wrapper button, .footer-wrapper button {
+        padding: 0.5em;
+    }
+}
