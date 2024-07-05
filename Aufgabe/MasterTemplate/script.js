@@ -92,6 +92,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Initialisierung beim Laden der Seite
     adjustHeaderFooter();
 })
