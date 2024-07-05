@@ -1,8 +1,8 @@
 html, body {
-    height: auto;
+    height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #333333;
+    background-color: #ffffff;
     font-size: 26.46px; /* Entspricht 0,7cm */
     font-family: "Roboto", sans-serif;
 }
@@ -193,6 +193,34 @@ p {
 
 .footer-wrapper button:hover {
     background-color: #111111;
+}
+
+#autoCompleteInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* ensures padding is included in the element's total width and height */
+}
+
+#suggestionsContainer {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none; /* removes the top border to create a seamless connection to the input field */
+    max-height: 400px; /* sets a maximum height for the container */
+    overflow-y: auto; /* enables vertical scrolling */
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box; /* ensures padding and border are included in the element's total width and height */
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
 }
 
 @media (min-width: 768px) { /* Desktop */

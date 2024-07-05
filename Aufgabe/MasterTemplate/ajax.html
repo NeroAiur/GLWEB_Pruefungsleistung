@@ -30,12 +30,29 @@
     <div class="mainWrapper">
         <main>
             <div class="contentWrapper">
-                <form id="ajaxForm">
-                    <label for="inputText">Gib einen Text ein:</label>
-                    <input type="text" id="inputText" name="inputText" required>
-                    <button type="submit">Senden</button>
-                </form>
-                <div id="responseContainer"></div>
+                <div class="contentColumn">
+                    <div class="content">
+                        <form id="ajaxForm">
+                            <label for="inputText">Gib einen Text ein:</label>
+                            <input type="text" id="inputText" name="inputText" required>
+                            <button type="submit">Senden</button>
+                        </form>
+                    </div>
+                    <div class="content">
+                        <div id="responseContainer"></div>
+                    </div>
+                </div>
+                <div class="contentColumn">
+                    <div class="content">
+                        <form id="autoCompleteForm">
+                            <label for="autoCompleteInput">Auto-Complete Eingabe:</label>
+                            <input type="text" id="autoCompleteInput" name="autoCompleteInput">
+                        </form>
+                    </div>
+                    <div class="content">
+                        <div id="suggestionsContainer"></div>
+                    </div>
+                </div>
             </div>
         </main>
         <aside>

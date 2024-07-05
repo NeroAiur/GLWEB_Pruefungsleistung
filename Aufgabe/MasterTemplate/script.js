@@ -114,4 +114,35 @@ document.addEventListener("DOMContentLoaded", () => {
             responseContainer.textContent = "Ein Fehler ist aufgetreten: " + error;
         });
     });
+
+    const autoCompleteInput = document.getElementById("autoCompleteInput");
+    const suggestionsContainer = document.getElementById("suggestionsContainer");
+
+    autoCompleteInput.addEventListener("input", () => {
+        const query = autoCompleteInput.value;
+
+        if (query.length >= 4) {
+            fetch(`http://ajax.lern.es/ajax37.php?needle=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    suggestionsContainer.innerHTML = "";
+                    data.forEach(item => {
+                        const suggestionItem = document.createElement("div");
+                        suggestionItem.classList.add("suggestion-item");
+                        suggestionItem.textContent = item;
+                        suggestionsContainer.appendChild(suggestionItem);
+
+                        suggestionItem.addEventListener("click", () => {
+                            autoCompleteInput.value = item;
+                            suggestionsContainer.innerHTML = "";
+                        });
+                    });
+                })
+                .catch(error => {
+                    suggestionsContainer.innerHTML = `<div>Ein Fehler ist aufgetreten: ${error}</div>`;
+                });
+        } else {
+            suggestionsContainer.innerHTML = "";
+        }
+    });
 })
