@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // checking state of login button
     if (document.cookie.includes("login_state=true")) {
         let btn_login = document.getElementById("btn_login");
         btn_login.innerHTML = "Logout";
     }
 
+    // functionality of the welcome message button
     let wm_btn_pressed = false;
     document.getElementById("btn_welcome_message").onclick = () => {
         try {
@@ -30,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // functionality of the login button
     document.getElementById("btn_login").onclick = () => {
         try {
             if ((document.cookie.includes("login_state=false") && !document.cookie.includes("login_state=true")) || (document.cookie == "")) {
@@ -49,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // functionality of auto adjusting of header and footer
     const header = document.querySelector(".header-wrapper");
     const footer = document.querySelector(".footer-wrapper");
     const mainWrapper = document.querySelector(".mainWrapper")
@@ -97,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const textForm = document.getElementById("textForm");
     const responseContainer = document.getElementById("responseContainer");
 
+    // functionality of the first AJAX component
     textForm.addEventListener("submit", function(event) {
         event.preventDefault();
         const formData = new FormData(textForm);
@@ -114,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // functionality of the second AJAX component
     const autoCompleteInput = document.getElementById("autoCompleteInput");
     const suggestionsContainer = document.getElementById("suggestionsContainer");
 
