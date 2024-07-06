@@ -1,37 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let btn_login = document.getElementById("btn_login");
-    let cookie = document.cookie;
-
-    if ((cookie.includes("login_state=false") && !cookie.includes("login_state=true")) || (cookie == "")) {
-        btn_login.classList.remove("btnLoginLogout")
-        btn_login.classList.add("btnLoginLogin")
-    } else if (cookie.includes("login_state=true")) {
-        btn_login.classList.remove("btnLoginLogin")
-        btn_login.classList.add("btnLoginLogout")
-    }
-
+    // checking state of login button
     if (document.cookie.includes("login_state=true")) {
         let btn_login = document.getElementById("btn_login");
         btn_login.innerHTML = "Logout";
     }
 
-    const styleSelector = document.getElementById("styleSelector");
-    styleSelector.addEventListener("change", () => {
-        if (styleSelector.value == "accessible") {
-            document.body.classList.add("accessible");
-            document.querySelector(".headerWrapper").classList.add("accessible");
-            document.querySelectorAll(".headerWrapper ul li a").forEach(link => {
-                link.classList.add("accessible");
-            })
-        } else {
-            document.body.classList.remove("accessible");
-            document.querySelector(".headerWrapper").classList.remove("accessible");
-            document.querySelectorAll(".headerWrapper ul li a").forEach(link => {
-                link.classList.remove("accessible");
-            })
-        }
-    })
-
+    // functionality of the welcome message button
     let wm_btn_pressed = false;
     document.getElementById("btn_welcome_message").onclick = () => {
         try {
@@ -58,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // functionality of the login button
     document.getElementById("btn_login").onclick = () => {
         try {
             if ((document.cookie.includes("login_state=false") && !document.cookie.includes("login_state=true")) || (document.cookie == "")) {
@@ -77,7 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    const header = document.querySelector(".headerWrapper");
+    // functionality of auto adjusting of header and footer
+    const header = document.querySelector(".header-wrapper");
     const footer = document.querySelector(".footer-wrapper");
     const mainWrapper = document.querySelector(".mainWrapper")
     const lst_navigation = document.querySelector(".lst_navigation")
@@ -120,6 +96,58 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Initialisierung beim Laden der Seite
     adjustHeaderFooter();
+
+    const textForm = document.getElementById("textForm");
+    const responseContainer = document.getElementById("responseContainer");
+
+    // functionality of the first AJAX component
+    textForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const formData = new FormData(textForm);
+
+        fetch("http://ajax.lern.es/ajax36.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            responseContainer.innerHTML = data;
+        })
+        .catch(error => {
+            responseContainer.innerHTML = `<div>Ein Fehler ist aufgetreten: ${error}</div>`;
+        });
+    });
+
+    // functionality of the second AJAX component
+    const autoCompleteInput = document.getElementById("autoCompleteInput");
+    const suggestionsContainer = document.getElementById("suggestionsContainer");
+
+    autoCompleteInput.addEventListener("input", () => {
+        const query = autoCompleteInput.value;
+
+        if (query.length >= 4) {
+            fetch(`http://ajax.lern.es/ajax37.php?needle=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    suggestionsContainer.innerHTML = "";
+                    data.forEach(item => {
+                        const suggestionItem = document.createElement("div");
+                        suggestionItem.classList.add("suggestion-item");
+                        suggestionItem.textContent = item;
+                        suggestionsContainer.appendChild(suggestionItem);
+
+                        suggestionItem.addEventListener("click", () => {
+                            autoCompleteInput.value = item;
+                            suggestionsContainer.innerHTML = "";
+                        });
+                    });
+                })
+                .catch(error => {
+                    suggestionsContainer.innerHTML = `<div>Ein Fehler ist aufgetreten: ${error}</div>`;
+                });
+        } else {
+            suggestionsContainer.innerHTML = "";
+        }
+    });
 })
