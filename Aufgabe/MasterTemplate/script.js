@@ -94,24 +94,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     adjustHeaderFooter();
 
-    const form = document.getElementById("ajaxForm");
+    const textForm = document.getElementById("textForm");
     const responseContainer = document.getElementById("responseContainer");
 
-    form.addEventListener("submit", (event) => {
+    textForm.addEventListener("submit", function(event) {
         event.preventDefault();
-        const formData = new FormData(form);
-        const inputText = formData.get("inputText");
+        const formData = new FormData(textForm);
 
         fetch("http://ajax.lern.es/ajax36.php", {
             method: "POST",
-            body: new URLSearchParams({ text: inputText })
+            body: formData
         })
         .then(response => response.text())
         .then(data => {
-            responseContainer.textContent = data;
+            responseContainer.innerHTML = data;
         })
         .catch(error => {
-            responseContainer.textContent = "Ein Fehler ist aufgetreten: " + error;
+            responseContainer.innerHTML = `<div>Ein Fehler ist aufgetreten: ${error}</div>`;
         });
     });
 
