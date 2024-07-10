@@ -14,14 +14,16 @@
     <header>
         <div class="header-wrapper">
             <ul id="lst_navigation" class="lst_navigation">
+                <li><a href="index.html">Startseite</a></li>
                 <li><a href="galery.html">Galerie</a></li>
-                <li><a href="product_1.html">Produkt 1</a></li>
-                <li><a href="product_2.html">Produkt 2</a></li>
-                <li><a href="product_3.html">Produkt 3</a></li>
-                <li><a href="product_4.html">Produkt 4</a></li>
-                <li><a href="product_5.html">Produkt 5</a></li>
+                <li><a href="product_1.html">Katze 1</a></li>
+                <li><a href="product_2.html">Katze 2</a></li>
+                <li><a href="product_3.html">Katze 3</a></li>
+                <li><a href="product_4.html">Katze 4</a></li>
+                <li><a href="product_5.html">Katze 5</a></li>
                 <li><a href="video.html">Video</a></li>
                 <li><a href="audio.html">Audio</a></li>
+                <li><a href="ajax.html">AJAX</a></li>
                 <li><button id="btn_login">Login</button></li>
             </ul>
         </div>
@@ -29,11 +31,13 @@
     <div class="mainWrapper">
         <main>
             <div class="contentWrapper">
-                <video controls poster="assets/thumbnail.jpg" width="1536" height="760">
-                    <source src="assets/v_example.webm" type="video/webm">
-                    <source src="assets/v_example.mp4" type="video/mp4">
-                    Ihr Browser unterstützt das Video-Tag nicht.
-                </video>
+                <div class="content" id="content1">
+                    <video controls poster="assets/cat5.webp" autoplay loop>
+                        <source src="assets/maxwell.webm" type="video/webm">
+                        <source src="assets/maxwell.mp4" type="video/mp4">
+                        Ihr Browser unterstützt das Video-Tag nicht.
+                    </video>
+                </div>
             </div>
         </main>
         <aside>
