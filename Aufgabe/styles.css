@@ -120,6 +120,7 @@ p {
 }
 
 .content {
+    width: 96%;
     padding: 10px;
     background-color: lightgrey;
     margin: 5px;
