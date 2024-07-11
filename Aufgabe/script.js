@@ -18,12 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
                        \nDeine aktuelle Fenstergröße beträgt: " + window.innerWidth + "x" + window.innerHeight);
         
                 let button = document.getElementById("btn_welcome_message");
-                button.innerHTML = "Return Welcome Message";
+                // Replaced by JQuery
+                // button.innerHTML = "Return Welcome Message";
                 wm_btn_pressed = true;
 
             } else if (wm_btn_pressed === true) {
                 let button = document.getElementById("btn_welcome_message");
-                button.innerHTML = "Welcome Message";
+                // Replaced by JQuery
+                // button.innerHTML = "Welcome Message";
                 wm_btn_pressed = false;
             }
 
