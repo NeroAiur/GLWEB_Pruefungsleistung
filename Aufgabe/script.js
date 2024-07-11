@@ -18,14 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
                        \nDeine aktuelle Fenstergröße beträgt: " + window.innerWidth + "x" + window.innerHeight);
         
                 let button = document.getElementById("btn_welcome_message");
-                // Replaced by JQuery
-                // button.innerHTML = "Return Welcome Message";
+                button.innerHTML = "Return Welcome Message";
                 wm_btn_pressed = true;
 
             } else if (wm_btn_pressed === true) {
                 let button = document.getElementById("btn_welcome_message");
-                // Replaced by JQuery
-                // button.innerHTML = "Welcome Message";
+                button.innerHTML = "Welcome Message";
                 wm_btn_pressed = false;
             }
 
@@ -103,7 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const textForm = document.getElementById("textForm");
     const responseContainer = document.getElementById("responseContainer");
 
-    // functionality of the first AJAX component
+    // functionality of the first AJAX component - non jQuery variant
+    /*
     textForm.addEventListener("submit", function(event) {
         event.preventDefault();
         const formData = new FormData(textForm);
@@ -120,8 +119,10 @@ document.addEventListener("DOMContentLoaded", () => {
             responseContainer.innerHTML = `<div>Ein Fehler ist aufgetreten: ${error}</div>`;
         });
     });
+    */
 
-    // functionality of the second AJAX component
+    // functionality of the second AJAX component - non jQuery variant
+    /*
     const autoCompleteInput = document.getElementById("autoCompleteInput");
     const suggestionsContainer = document.getElementById("suggestionsContainer");
 
@@ -152,4 +153,56 @@ document.addEventListener("DOMContentLoaded", () => {
             suggestionsContainer.innerHTML = "";
         }
     });
+    */
+
+    // functionality of both AJAX components - jQuery variant
+    $(document).ready(function() {
+        $("#textForm").submit(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: "http://ajax.lern.es/ajax36.php",
+                type: "POST",
+                data: $(this).serialize(),
+                success: function(response) {
+                    $("#responseContainer").html(response);
+                },
+                error: function(error) {
+                    $("#responseContainer").html("ein Fehler ist aufgetreten: ${error}");
+                }
+            })
+        })
+
+        const autoCompleteInput = $("#autoCompleteInput");
+        const suggestionsContainer = $("#suggestionsContainer");
+
+        autoCompleteInput.on("input", function() {
+            const query = autoCompleteInput.val();
+
+            if (query.length >= 4) {
+                $.ajax({
+                    url: `http://ajax.lern.es/ajax37.php`,
+                    type: "GET",
+                    data: { needle: query },
+                    dataType: "json",
+                    success: function(data) {
+                        suggestionsContainer.empty();
+                        $.each(data, function(index, item) {
+                            const suggestionItem = $("<div>").addClass("suggestion-item").text(item);
+                            suggestionsContainer.append(suggestionItem);
+
+                            suggestionItem.on("click", function() {
+                                autoCompleteInput.val(item);
+                                suggestionsContainer.empty();
+                            });
+                        });
+                    },
+                    error: function(error) {
+                        suggestionsContainer.html(`<div>Ein Fehler ist aufgetreten: ${error}</div>`);
+                    }
+                });
+            } else {
+                suggestionsContainer.empty();
+            }
+        });
+    })
 })
